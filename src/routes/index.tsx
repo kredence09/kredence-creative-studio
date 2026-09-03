@@ -1,24 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav, Hero, About, Services } from "@/components/kredence/sections-top";
+import { Websites, Videos, Logos, Brands, Industries } from "@/components/kredence/sections-mid";
+import { Process, Testimonials, FinalCTA, Footer } from "@/components/kredence/sections-end";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Kredence — Multidisciplinary Creative Studio" },
+      {
+        name: "description",
+        content:
+          "Kredence is a creative studio for branding, logo design, video editing, content, web design and marketing campaigns.",
+      },
+      { property: "og:title", content: "Kredence — Multidisciplinary Creative Studio" },
+      {
+        property: "og:description",
+        content:
+          "Branding, digital, content, video editing and marketing — built in-house by Kredence.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="bg-background text-foreground min-h-screen">
+      <Nav />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Websites />
+        <Videos />
+        <Logos />
+        <Brands />
+        <Industries />
+        <Process />
+        <Testimonials />
+        <FinalCTA />
+      </main>
+      <Footer />
     </div>
   );
 }
