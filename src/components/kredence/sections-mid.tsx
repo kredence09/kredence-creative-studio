@@ -59,6 +59,79 @@ export function Websites() {
   );
 }
 
+const GRAPHICS = [
+  { title: "After Hours", type: "Campaign Key Visual", format: "4:5", layout: "portrait" },
+  { title: "Common Ground", type: "Editorial Spread", format: "A3", layout: "wide" },
+  { title: "Freshly Poured", type: "Social Campaign", format: "1:1", layout: "square" },
+  { title: "Nocturne No. 04", type: "Packaging System", format: "3:4", layout: "portrait" },
+  { title: "City in Motion", type: "Event Poster", format: "A2", layout: "tall" },
+  { title: "Field Notes", type: "Launch Toolkit", format: "16:9", layout: "wide" },
+];
+
+export function Graphics() {
+  return (
+    <section id="graphics" className="paper-grain border-charcoal/15 border-y px-6 py-28">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeader
+          index="04"
+          label="Static graphics"
+          title="Made to hold a gaze"
+          ghost="GRAPHICS"
+          note="Campaigns, posters, social systems and printed pieces — pinned to one working wall."
+        />
+        <div className="grid auto-rows-[15rem] gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {GRAPHICS.map((graphic, i) => (
+            <Reveal
+              key={graphic.title}
+              delay={i * 60}
+              rotate={i % 3 === 0 ? -1.5 : i % 3 === 1 ? 1 : -0.5}
+              className={cn(
+                "min-h-0",
+                graphic.layout === "wide" && "lg:col-span-2",
+                graphic.layout === "tall" && "md:row-span-2",
+              )}
+            >
+              <article className="group bg-card border-charcoal/20 relative flex h-full flex-col border p-3 shadow-paper transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:border-teal hover:shadow-lift">
+                <div className="grid-lines bg-paper-dim relative min-h-0 flex-1 overflow-hidden border border-charcoal/15">
+                  <div className="absolute inset-4 border border-charcoal/20 transition-transform duration-500 group-hover:scale-[0.97]">
+                    <span className="bg-teal absolute left-0 top-0 h-2 w-2/3" />
+                    <span className="font-display text-charcoal/15 absolute bottom-1 left-2 text-6xl leading-none md:text-7xl">
+                      0{i + 1}
+                    </span>
+                    <span className="bg-charcoal absolute right-3 top-3 h-1/3 w-px" />
+                    <span className="bg-charcoal/10 absolute bottom-3 right-3 h-1/3 w-1/3" />
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="bg-paper/90 font-mono text-charcoal border-charcoal/30 border px-3 py-2 text-center text-[10px] tracking-[0.2em] uppercase shadow-paper">
+                      {graphic.type}
+                    </span>
+                  </div>
+                  <div className="bg-teal/90 absolute inset-0 flex translate-y-full items-center justify-center transition-transform duration-500 group-hover:translate-y-0">
+                    <span className="font-mono text-charcoal inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase">
+                      View piece <ArrowUpRight className="size-4" />
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-3 flex items-end justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-charcoal/50 text-[9px] tracking-[0.2em] uppercase">
+                      {graphic.type}
+                    </p>
+                    <h3 className="font-display text-charcoal mt-1 text-2xl">{graphic.title}</h3>
+                  </div>
+                  <span className="font-mono text-charcoal/55 shrink-0 text-[9px] tracking-[0.18em] uppercase">
+                    {graphic.format}
+                  </span>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const VIDEOS = [
   "Brand Film — Automotive",
   "Reel Series — Beauty",
@@ -75,7 +148,7 @@ export function Videos() {
     <section className="paper-grain px-6 py-28">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          index="04"
+          index="05"
           label="Videos edited"
           title="Cuts that hold"
           ghost="CUTS"
@@ -123,7 +196,7 @@ export function Logos() {
       <DoodleStar className="text-teal absolute top-16 right-12 size-16 rotate-12" />
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          index="05"
+          index="06"
           label="Logos designed"
           title="Marks on paper"
           ghost="MARKS"
@@ -164,7 +237,7 @@ export function Brands() {
       <DoodleArrow className="text-charcoal/40 absolute left-10 top-24 hidden size-24 lg:block" />
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          index="06"
+          index="07"
           label="Brands we've worked with"
           title="Good company"
           ghost="GOOD"
@@ -228,7 +301,7 @@ export function Industries() {
     <section className="bg-charcoal overflow-hidden px-6 py-28">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          index="07"
+          index="08"
           label="Industries"
           title="Where we've worked"
           ghost="WHERE"
