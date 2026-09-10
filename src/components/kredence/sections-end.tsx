@@ -22,7 +22,7 @@ export function Process() {
     if (!el) return;
     const io = new IntersectionObserver(
       ([e]) => {
-        if (!e.isIntersecting) return;
+        if (!e?.isIntersecting) return;
         io.disconnect();
         let i = 0;
         const t = setInterval(() => {

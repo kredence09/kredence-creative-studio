@@ -70,7 +70,7 @@ const GRAPHICS = [
 
 export function Graphics() {
   return (
-    <section id="graphics" className="paper-grain border-charcoal/15 border-y px-6 py-28">
+    <section id="graphics" className="paper-grain border-charcoal/15 overflow-hidden border-y px-6 py-28">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           index="04"

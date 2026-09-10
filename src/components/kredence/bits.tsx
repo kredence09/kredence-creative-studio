@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createElement, useEffect, useRef, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /* Scroll reveal wrapper */
@@ -23,7 +23,7 @@ export function Reveal({
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setInView(true);
           io.disconnect();
         }
@@ -34,15 +34,14 @@ export function Reveal({
     return () => io.disconnect();
   }, []);
 
-  const Comp = Tag as never;
-  return (
-    <Comp
-      ref={ref as never}
-      className={cn("reveal", inView && "is-in", className)}
-      style={{ transitionDelay: `${delay}ms`, ["--reveal-rot" as string]: `${rotate}deg` }}
-    >
-      {children}
-    </Comp>
+  return createElement(
+    Tag,
+    {
+      ref,
+      className: cn("reveal", inView && "is-in", className),
+      style: { transitionDelay: `${delay}ms`, ["--reveal-rot" as string]: `${rotate}deg` },
+    },
+    children,
   );
 }
 
