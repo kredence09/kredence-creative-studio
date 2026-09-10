@@ -22,7 +22,7 @@ export function Process() {
     if (!el) return;
     const io = new IntersectionObserver(
       ([e]) => {
-        if (!e.isIntersecting) return;
+        if (!e?.isIntersecting) return;
         io.disconnect();
         let i = 0;
         const t = setInterval(() => {
@@ -41,7 +41,7 @@ export function Process() {
     <section className="bg-paper-dim border-charcoal/15 border-y px-6 py-28">
       <div className="mx-auto max-w-7xl" ref={ref}>
         <SectionHeader
-          index="08"
+          index="09"
           label="Process"
           title="How it actually goes"
           ghost="HOW"
@@ -112,7 +112,7 @@ export function Testimonials() {
     <section className="paper-grain px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          index="09"
+          index="10"
           label="Testimonials"
           title="Word of mouth"
           ghost="WORD"
@@ -195,7 +195,7 @@ export function FinalCTA() {
 }
 
 const COLUMNS = [
-  { h: "Work", l: ["Websites", "Videos", "Logos", "Campaigns"] },
+  { h: "Work", l: ["Websites", "Graphics", "Videos", "Logos"] },
   { h: "Services", l: ["Branding", "Content", "Social", "Digital"] },
   { h: "About", l: ["Studio", "Process", "Industries", "Clients"] },
   { h: "Contact", l: ["Email", "Phone", "Instagram", "LinkedIn"] },
